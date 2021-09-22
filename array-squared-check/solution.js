@@ -25,25 +25,13 @@ b = [132, 14641, 20736, 361, 25921, 361, 20736, 361]
 */
 
 function comp(array1, array2){
-    if (array1 !== null && array2 !== null) {
-      function orderSort(array) {
-        return array.sort((a,b) => {
-          if (a<b) {
-            return -1;
-          }
-          if (a>b) {
-            return 1;
-          }
-          return 0;
-        });
-      }
-      let squaredArr1 = orderSort(array1).map(e => e*e).toString();
-      let sortedArr2 = orderSort(array2).toString();
-      console.log(squaredArr1);
-      console.log(sortedArr2);
-      return squaredArr1 == sortedArr2;
+  if (array1 !== null && array2 !== null) {
+    function orderSort(array) {
+      return array.sort((a,b) => a-b);
     }
-    else {
-      return false;
-    }
+    return (orderSort(array1).map(e => e*e).toString()) == (orderSort(array2).toString());
+  }
+  else {
+    return false;
+  }
 }
