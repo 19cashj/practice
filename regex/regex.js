@@ -151,3 +151,19 @@ noquit.match(qRegex); //returns ["q"]
 let password = "abc123";
 let checkPass = /(?=\w{3,6})(?=\D*\d)/;
 checkPass.test(password); //returns true
+
+//Mixed grouping with parentheses ()
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+testRegex.test(testStr); //returns true
+
+//Capture groups enclosed by ()
+let repeatStr = "row row row your boat";
+let repeatRegex = /(\w+) \1 \1/; //(\w+) is the capture group and is stored into a variable based on the number it appeared, so \1
+repeatRegex.test(repeatStr); // Returns true
+repeatStr.match(repeatRegex); // Returns ["row row row", "row"]
+
+//Replace method
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue"); //returns the string The sky is blue.
