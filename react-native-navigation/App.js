@@ -8,6 +8,7 @@ import { AboutScreen } from './components/AboutScreen'
 import { PostScreen } from './components/PostScreen'
 import { ParamTitleScreen } from './components/ParamTitleScreen';
 import { Context } from './Context'
+import { StackedNavScreen } from './components/StackedNavScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
             <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Home' }} initialParams={{ initialParam: "I am an initial parameter",}} />
             <Stack.Screen name="About" component={AboutScreen} options={{ title: 'About' }} />
             <Stack.Screen name="Post" component={PostScreen} options={{ title: 'Post' }} />
+            <Stack.Screen name="StackedNav" component={StackedNavScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ParamTitle" component={ParamTitleScreen} options={({ route }) =>
             ({ title: route.params.name,
               headerStyle: { backgroundColor: '#f4511e', },
