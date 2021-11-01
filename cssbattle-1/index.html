@@ -1,0 +1,71 @@
+<!-- https://cssbattle.dev/play/77 100% match -->
+<!-- Note that this code will look wrong in the browser. Solution used 400px x 300px background -->
+
+<div class="parent">
+    <div class="line line1 lightRed"></div>
+    <div class="line line2"></div>
+    <div class="line line3 darkRed"></div>
+    <div class="line line4 lightRed"></div>
+    <div class="note lightRed">
+    <div class="note lightRed">
+    <div class="note darkRed">
+    <div class="note lightRed">
+  </div>
+<style>
+    body {
+      background-color: #191919;
+    }
+    .lightRed {
+      background: #FE5F55;
+    }
+    .darkRed {
+      background: #A64942;
+    }
+    .parent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 93%;
+      width: 113;
+    }
+    .note {
+      width: 10px;
+      height: 100px;
+      margin-left: 70;
+      position: relative;
+    }
+    .note::before {
+      content: '';
+      position: absolute;
+      top: 80;
+      right: 0;
+      background: inherit;
+      border-radius: 70%;
+      width: 50px;
+      height: 40px;
+    }
+    .line {
+      content: '';
+      bottom: 200;
+      position: absolute;
+      height: 10px;
+      width: 40px;
+    }
+    .line1 {
+      width: 250px;
+      left: 95;
+      z-index: 0;
+    }
+    .line2 {
+      width: 130px;
+      background: #191919;
+      left: 175;
+    }
+    .line3 {
+      left: 235;
+    }
+    .line4 {
+      left: 305;
+      top: 110;
+    }
+</style>
