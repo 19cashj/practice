@@ -1,0 +1,43 @@
+<!-- https://cssbattle.dev/play/89 100% match -->
+<!-- Note that this code will look wrong in the browser. Solution used 400px x 300px background -->
+<div class="parent">
+	<div class="triangle"></div>
+  <div class="topCircle">
+   	<div class="triangle tri2"></div>
+  </div>
+</div>
+<style>
+  body {
+    background: #191919;
+  }
+  .parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 284;
+    position: relative;
+  }
+  .topCircle {
+    background: #F9E492;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+  }
+  .triangle {
+    background: #4F77FF;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    transform: rotate(45deg);
+    top: 203;
+    
+  }
+  .tri2 {
+    background: #191919;
+    position: relative;
+	right: 25;
+    top: 161
+  }
+</style>
