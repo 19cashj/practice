@@ -1,0 +1,49 @@
+<!-- https://cssbattle.dev/play/85 100% match -->
+<!-- Note that this code will look wrong in the browser. Solution used 400px x 300px background -->
+<div class="parent">
+  <div class="top">
+  	<div class="box a"></div>
+  	<div class="box a b"></div>
+  </div>
+  <div class="box"></div>
+</div>
+<style>
+  body {
+    background: #D25B70;
+  }
+  .parent {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: #F7F3DA;
+  }
+  .top {
+    height: 100;
+    width: 205;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .a {
+    background: #6CB3A9;
+    transform: rotate(37deg);
+    width: 60px;
+    height: 60px;
+    bottom: -8;
+    position: relative;
+  }
+  .b {
+    background: #F6DF96;
+    width: 80px;
+    height: 80px;
+    bottom: 6;
+    right: 4;
+  }
+</style>
