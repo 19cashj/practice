@@ -41,7 +41,7 @@ function USPS(pkg)
 function Shipping()
 {
   this.company = ''
-  this.setStrategy = company =>
+  this.setStrategy = (company) =>
   {
     this.company = company
   }
