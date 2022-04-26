@@ -3,7 +3,8 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/blogDB")
+const { username, password } = require('./config');
+mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.kkufq.mongodb.net/blogDB`)
 const postSchema = new mongoose.Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
@@ -65,14 +66,8 @@ app.post("/compose", function(req,res) {
     body: postInfo.body,
     id: postInfo.id
   });
-  post.save(function(err){
-    if (!err){
-      res.redirect("/");
-    }
-  });
+  post.save();
   res.redirect("/");
 })
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
-});
+app.listen(process.env.PORT)
