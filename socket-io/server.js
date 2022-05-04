@@ -19,8 +19,13 @@ app.get('/home', (req,res) => {
 
 io.on('connection', (socket) => {
     console.log(`User connected: ${socket.id}`);
-    socket.on("message", (data) => {
-      socket.broadcast.emit('message', data) //broadcast will emit to all users except the current
+    socket.join('main');
+    socket.on("message", (data) => { //data is [message, room]
+      socket.to(data[1]).emit('message', data[0]);
+    })
+    socket.on("join", (room) => {
+      socket.join(room);
+      console.log(`User ${socket.id} joined room: ${room}`);
     })
 });
 

@@ -9,18 +9,24 @@
 <body>
     <input type="text" class="message">
     <button onclick="sendMessage()">Send</button>
+    <input type="text" class="room">
+    <button onclick="changeRoom()">Join</button>
     <h1></h1>
 </body>
 <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
 <script>
+    let room = 'main';
     const socket = io('http://localhost:3000')
-    socket.on('connection')
     socket.on('message', (data) => {
         document.querySelector('h1').innerHTML = data;
     });
+    const changeRoom = () => {
+        room = document.querySelector('.room').value;
+        socket.emit('join', room);
+    }
     const sendMessage = () => {
-        const message = document.querySelector('.message').value;
-        socket.emit('message', message)
+        const data = [document.querySelector('.message').value, room];
+        socket.emit('message', data)
     }
 </script>
 </html>
